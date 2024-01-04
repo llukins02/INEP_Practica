@@ -142,6 +142,7 @@
     <ClCompile Include="Transaccio.cpp" />
     <ClCompile Include="TxConsultaUsuari.cpp" />
     <ClCompile Include="TxEsborraUsuari.cpp" />
+    <ClCompile Include="TxInfoCompres.cpp" />
     <ClCompile Include="TxIniciSessio.cpp" />
     <ClCompile Include="TxRegistraUsuari.cpp" />
     <ClCompile Include="TxTancaSessio.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Transaccio.h" />
     <ClInclude Include="TxConsultaUsuari.h" />
     <ClInclude Include="TxEsborraUsuari.h" />
+    <ClInclude Include="TxInfoCompres.h" />
     <ClInclude Include="TxIniciSessio.h" />
     <ClInclude Include="TxRegistraUsuari.h" />
     <ClInclude Include="TxTancaSessio.h" />

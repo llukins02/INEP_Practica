@@ -13,6 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\TxUsuari">
+      <UniqueIdentifier>{d3da1f3a-feec-443c-8ea5-76245724879d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Pasarela">
+      <UniqueIdentifier>{4644663b-e6c0-4982-8af1-8a09b41418cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Cercador">
+      <UniqueIdentifier>{e793bb50-aedc-447e-a463-ef895e74c42a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TxCompra">
+      <UniqueIdentifier>{1602fcc8-0243-4c7b-bfda-9302629af21b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cercador">
+      <UniqueIdentifier>{c8810815-44d6-4014-a2e1-08233cd6946c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Pasarela">
+      <UniqueIdentifier>{605717b3-796d-4517-9394-36ae7bb3a897}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tx">
+      <UniqueIdentifier>{c7e1193d-a596-4e3b-88a4-7341c22499c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tx\Usuari">
+      <UniqueIdentifier>{d238deb4-7756-47c0-ae66-747aae9283b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tx\Compra">
+      <UniqueIdentifier>{0f8cfd17-e096-429a-91de-2a16c1bc15cf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="capaPresentacio.cpp">
@@ -21,44 +48,47 @@
     <ClCompile Include="Transaccio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TxIniciSessio.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TxTancaSessio.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TxRegistraUsuari.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CtrlModificaUsuari.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TxConsultaUsuari.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TxEsborraUsuari.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CercadorUsuari.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CercadorCompres.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CercadorElemCompra.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PasarelaCompra.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PasarelaElemCompra.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PasarelaUsuari.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Videoconsola.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadorElemCompra.cpp">
+      <Filter>Source Files\Cercador</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadorCompres.cpp">
+      <Filter>Source Files\Cercador</Filter>
+    </ClCompile>
+    <ClCompile Include="CercadorUsuari.cpp">
+      <Filter>Source Files\Cercador</Filter>
+    </ClCompile>
+    <ClCompile Include="PasarelaUsuari.cpp">
+      <Filter>Source Files\Pasarela</Filter>
+    </ClCompile>
+    <ClCompile Include="PasarelaElemCompra.cpp">
+      <Filter>Source Files\Pasarela</Filter>
+    </ClCompile>
+    <ClCompile Include="PasarelaCompra.cpp">
+      <Filter>Source Files\Pasarela</Filter>
+    </ClCompile>
+    <ClCompile Include="TxRegistraUsuari.cpp">
+      <Filter>Source Files\Tx\Usuari</Filter>
+    </ClCompile>
+    <ClCompile Include="TxConsultaUsuari.cpp">
+      <Filter>Source Files\Tx\Usuari</Filter>
+    </ClCompile>
+    <ClCompile Include="TxEsborraUsuari.cpp">
+      <Filter>Source Files\Tx\Usuari</Filter>
+    </ClCompile>
+    <ClCompile Include="TxIniciSessio.cpp">
+      <Filter>Source Files\Tx\Usuari</Filter>
+    </ClCompile>
+    <ClCompile Include="TxTancaSessio.cpp">
+      <Filter>Source Files\Tx\Usuari</Filter>
+    </ClCompile>
+    <ClCompile Include="TxInfoCompres.cpp">
+      <Filter>Source Files\Tx\Compra</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,44 +98,47 @@
     <ClInclude Include="Transaccio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TxIniciSessio.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TxTancaSessio.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TxRegistraUsuari.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CtrlModificaUsuari.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TxConsultaUsuari.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TxEsborraUsuari.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CercadorUsuari.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CercadorCompres.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CercadorElemCompra.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PasarelaCompra.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PasarelaElemCompra.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PasarelaUsuari.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Videoconsola.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TxConsultaUsuari.h">
+      <Filter>Header Files\TxUsuari</Filter>
+    </ClInclude>
+    <ClInclude Include="TxEsborraUsuari.h">
+      <Filter>Header Files\TxUsuari</Filter>
+    </ClInclude>
+    <ClInclude Include="TxRegistraUsuari.h">
+      <Filter>Header Files\TxUsuari</Filter>
+    </ClInclude>
+    <ClInclude Include="TxIniciSessio.h">
+      <Filter>Header Files\TxUsuari</Filter>
+    </ClInclude>
+    <ClInclude Include="TxTancaSessio.h">
+      <Filter>Header Files\TxUsuari</Filter>
+    </ClInclude>
+    <ClInclude Include="PasarelaElemCompra.h">
+      <Filter>Header Files\Pasarela</Filter>
+    </ClInclude>
+    <ClInclude Include="PasarelaCompra.h">
+      <Filter>Header Files\Pasarela</Filter>
+    </ClInclude>
+    <ClInclude Include="PasarelaUsuari.h">
+      <Filter>Header Files\Pasarela</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadorCompres.h">
+      <Filter>Header Files\Cercador</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadorElemCompra.h">
+      <Filter>Header Files\Cercador</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadorUsuari.h">
+      <Filter>Header Files\Cercador</Filter>
+    </ClInclude>
+    <ClInclude Include="TxInfoCompres.h">
+      <Filter>Header Files\TxCompra</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

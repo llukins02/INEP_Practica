@@ -16,7 +16,7 @@ void PasarelaUsuari::insereix() {
 		pqxx::work txn(conn);
 		pqxx::result res = txn.exec("INSERT INTO public.\"Usuari\"(nom, sobrenom, contrasenya, \"correuElectronic\", \"dataNaixement\")VALUES('"+nomU+"', '"+sobrenomU+"', '"+contrasenyaU+"', '"+correuElectronicU+"', '"+dataNaixamentU+"'); ");
 		txn.commit();
-		std::cout << "Usuari " << sobrenomU << " , registrat correctament!" << std::endl;
+		std::cout << "Usuari " << sobrenomU << ", registrat correctament!" << std::endl;
 	}
 	catch (const std::exception& e) {
 		std::string error = e.what();
