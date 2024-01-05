@@ -139,8 +139,11 @@
     <ClCompile Include="capaPresentacio.cpp" />
     <ClCompile Include="PasarelaCompra.cpp" />
     <ClCompile Include="PasarelaElemCompra.cpp" />
+    <ClCompile Include="PasarelaPaquetVideojoc.cpp" />
     <ClCompile Include="PasarelaUsuari.cpp" />
+    <ClCompile Include="PasarelaVideojoc.cpp" />
     <ClCompile Include="Transaccio.cpp" />
+    <ClCompile Include="TxConsultaCompres.cpp" />
     <ClCompile Include="TxConsultaUsuari.cpp" />
     <ClCompile Include="TxEsborraUsuari.cpp" />
     <ClCompile Include="TxInfoCompres.cpp" />
@@ -157,9 +160,12 @@
     <ClInclude Include="CtrlModificaUsuari.h" />
     <ClInclude Include="PasarelaCompra.h" />
     <ClInclude Include="PasarelaElemCompra.h" />
+    <ClInclude Include="PasarelaPaquetVideojoc.h" />
     <ClInclude Include="PasarelaUsuari.h" />
+    <ClInclude Include="PasarelaVideojoc.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Transaccio.h" />
+    <ClInclude Include="TxConsultaCompres.h" />
     <ClInclude Include="TxConsultaUsuari.h" />
     <ClInclude Include="TxEsborraUsuari.h" />
     <ClInclude Include="TxInfoCompres.h" />

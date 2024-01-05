@@ -25,7 +25,7 @@ void gUsuari() {
 		cin >> opcio;
 		cout << endl;
 		if (opcio > 4 || opcio < 1) {
-			cerr << "Opcio no valida!" << endl;
+			cerr << "Opcio no valida!\n" << endl;
 		}
 		else if (opcio == 1) {
 			cout << "** Consulta usuari **\n";
@@ -44,7 +44,8 @@ void gUsuari() {
 		}
 		else if (opcio == 3) {
 			string c;
-			cout << "** Esborrar usuari **\n Per confirmar l'esborrat, s'ha d'entrar la contrasenya...\n Contrasenya: ";
+			cout << "** Esborrar usuari **\nAdvertencia! El proces d'esborrar no es reversible, perdàs tots els teus videojocs i el teu compte"
+				"\nPer confirmar l'esborrat, s'ha d'entrar la contrasenya...\nContrasenya: ";
 			cin.ignore();
 			getline(cin, c);
 			TxEsborraUsuari tx;
@@ -60,6 +61,30 @@ void gUsuari() {
 			}
 			else { cout << "Contrasenya incorrecta, no s'ha borrat l'usuari.\n\n"; }
 		}
+		cout << endl;
+	}
+}
+
+void gCompra() {
+	int opcio = 0;
+	while (opcio != 4) {
+		cout << "------------------" << endl << "  Gestionar Compres" << endl << "------------------" << endl
+			<< "1. Comprar Videojoc" << endl << "2. Comprar Paquet" << endl << "3. Consultar Compres" << endl << "4. Tornar"
+			<< endl << "Opcio: ";
+		cin >> opcio;
+		if (opcio > 4 || opcio < 1) {
+			cerr << "Opcio no valida!\n" << endl;
+		}
+		else if (opcio == 1) {
+			//Comprar videojoc	
+		}
+		else if (opcio == 2) {
+			//Modificar Usuari
+		}
+		else if (opcio == 3) {
+			//Veure compres
+		}
+		cout << endl;
 	}
 }
 
@@ -72,7 +97,7 @@ void noUsuariIS() {
 		cin >> opcio;
 		cout << endl;
 		if (opcio > 3 || opcio < 0) {
-			cerr << "Opcio no valida!" << endl;
+			cerr << "Opcio no valida!\n" << endl;
 		}
 		else if (opcio == 0) {
 			configBD bd = configBD::getInstance();
@@ -117,6 +142,7 @@ void noUsuariIS() {
 			tx.crear(n, s, c, ce, dn);
 			cout << tx.executar();
 		}
+		cout << endl;
 	}
 }
 
@@ -129,13 +155,13 @@ void usuariIS() {
 		cin >> opcio;
 		cout << endl;
 		if (opcio > 5 || opcio < 1) {
-			cerr << "Opcio no valida!" << endl;
+			cerr << "Opcio no valida!\n" << endl;
 		}
 		else if (opcio == 1) {
 			gUsuari();
 		}
 		else if (opcio == 2) {
-			//consulta compres
+			gCompra();
 		}
 		else if (opcio == 3) {
 			//consulta videojoc
@@ -155,12 +181,13 @@ void usuariIS() {
 				tx.executar();
 				Videoconsola& v = Videoconsola::getInstance();
 				if (v.obteUsuari().obteSobrenom().empty()) {
-					cout << "Sessio tancada correctament!" << endl;
+					cout << "Sessio tancada correctament!\n" << endl;
 					noUsuariIS();
 					opcio = 5;
 				}
 			}
 		}
+		cout << endl;
 	}
 }
 

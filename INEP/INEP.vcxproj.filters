@@ -93,15 +93,21 @@
     <ClCompile Include="configBD.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PasarelaVideojoc.cpp">
+      <Filter>Source Files\Pasarela</Filter>
+    </ClCompile>
+    <ClCompile Include="TxConsultaCompres.cpp">
+      <Filter>Source Files\Tx\Compra</Filter>
+    </ClCompile>
+    <ClCompile Include="PasarelaPaquetVideojoc.cpp">
+      <Filter>Source Files\Pasarela</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Transaccio.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CtrlModificaUsuari.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Videoconsola.h">
@@ -145,6 +151,18 @@
     </ClInclude>
     <ClInclude Include="configBD.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CtrlModificaUsuari.h">
+      <Filter>Header Files\TxUsuari</Filter>
+    </ClInclude>
+    <ClInclude Include="TxConsultaCompres.h">
+      <Filter>Header Files\TxCompra</Filter>
+    </ClInclude>
+    <ClInclude Include="PasarelaVideojoc.h">
+      <Filter>Header Files\Pasarela</Filter>
+    </ClInclude>
+    <ClInclude Include="PasarelaPaquetVideojoc.h">
+      <Filter>Header Files\Pasarela</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
