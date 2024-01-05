@@ -1,4 +1,5 @@
 #include "CercadorUsuari.h"
+#include "configBD.h"
 #include <pqxx/pqxx>
 #include <iostream>
 
@@ -6,7 +7,8 @@
 PasarelaUsuari CercadorUsuari::cercadorUsuari(std::string sobrenomU) {
 	PasarelaUsuari u;
 	try {
-		pqxx::connection conn = pqxx::connection("dbname=vINEP user=postgres password=admin hostaddr = 127.0.0.1 port = 5432");
+		configBD& bd = configBD::getInstance();
+		pqxx::connection conn = pqxx::connection(bd.getString());
 		pqxx::work txn(conn);
 		pqxx::result res = txn.exec("SELECT * FROM public.\"Usuari\" WHERE sobrenom = '" + sobrenomU + "';");
 		if (!res.empty()) {

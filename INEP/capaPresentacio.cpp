@@ -1,5 +1,6 @@
 // INEP.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+#include "configBD.h"
 #include "TxIniciSessio.h"
 #include "TxTancaSessio.h"
 #include "TxRegistraUsuari.h"
@@ -48,13 +49,21 @@ void gUsuari() {
 void noUsuariIS() {
 	int opcio = 0;
 	while (opcio != 3) {
-		cout << "******************\n  Menu Principal\n******************" << endl
+		cout << "******************\n  Menu Principal\n******************" << endl << "0. Configurar BD\n"
 			<< "1. Iniciar Sessio" << endl << "2. Registrar Usuari" << endl << "3. Sortir" << endl << "Opcio: ";
 
 		cin >> opcio;
 		cout << endl;
-		if (opcio > 3 || opcio < 1) {
+		if (opcio > 3 || opcio < 0) {
 			cerr << "Opcio no valida!" << endl;
+		}
+		else if (opcio == 0) {
+			configBD bd = configBD::getInstance();
+			string n, u, p, a, po;
+			cout << "BD actual = (" + bd.getString() + ")\n"
+			"Introdueix els seguents camps en l'ordre donat:\ndbname:\nuser:\npassword:\nhostaddr:\nport:\n";
+			cin >> n >> u >> p >> a >> po;
+			bd.create(n, u, p, a, po);
 		}
 		else if (opcio == 1) {
 			string s, c;

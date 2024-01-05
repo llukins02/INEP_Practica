@@ -48,9 +48,6 @@
     <ClCompile Include="Transaccio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CtrlModificaUsuari.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Videoconsola.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -89,6 +86,12 @@
     </ClCompile>
     <ClCompile Include="TxInfoCompres.cpp">
       <Filter>Source Files\Tx\Compra</Filter>
+    </ClCompile>
+    <ClCompile Include="CtrlModificaUsuari.cpp">
+      <Filter>Source Files\Tx\Usuari</Filter>
+    </ClCompile>
+    <ClCompile Include="configBD.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="TxInfoCompres.h">
       <Filter>Header Files\TxCompra</Filter>
+    </ClInclude>
+    <ClInclude Include="configBD.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

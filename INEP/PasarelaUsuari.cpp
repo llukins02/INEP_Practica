@@ -1,4 +1,5 @@
 #include "PasarelaUsuari.h"
+#include "configBD.h"
 #include <iostream>
 #include <pqxx/pqxx>
 
@@ -12,7 +13,8 @@ void PasarelaUsuari::crear(std::string n, std::string s, std::string c, std::str
 
 void PasarelaUsuari::insereix() {
 	try {
-		pqxx::connection conn = pqxx::connection("dbname=vINEP user=postgres password=admin hostaddr = 127.0.0.1 port = 5432");
+		configBD& bd = configBD::getInstance();
+		pqxx::connection conn = pqxx::connection(bd.getString());
 		pqxx::work txn(conn);
 		pqxx::result res = txn.exec("INSERT INTO public.\"Usuari\"(nom, sobrenom, contrasenya, \"correuElectronic\", \"dataNaixement\")VALUES('"+nomU+"', '"+sobrenomU+"', '"+contrasenyaU+"', '"+correuElectronicU+"', '"+dataNaixamentU+"'); ");
 		txn.commit();
