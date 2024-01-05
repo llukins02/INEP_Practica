@@ -13,15 +13,15 @@ void TxIniciSessio::executar() {
 	CercadorUsuari cu;
 	PasarelaUsuari u = cu.cercadorUsuari(sobrenomU);
 	if (u.obteSobrenom().empty()) {
-		std::cerr << "Usuari inexistent" << std::endl;
+		std::cerr << "Usuari inexistent\n" << std::endl;
 	}
 	else if (u.obteContrasenya() == contrasenyaU) {
 		Videoconsola& v = Videoconsola::getInstance();
 		v.iniciaSessio(u);
-		std::cout << "Hola " << sobrenomU << ", sessio iniciada correctament!" << std::endl;
+		std::cout << "Hola " << sobrenomU << ", sessio iniciada correctament!\n" << std::endl;
 	}
 	else {
-		std::cerr << "Hi ha hagut un error amb el sobrenom o la contrasenya" << std::endl;
+		std::cerr << "Hi ha hagut un error amb el sobrenom o la contrasenya\n" << std::endl;
 		std::cout << u.obteContrasenya() << "=" << sobrenomU << "?\n";
 	}
 }

@@ -13,6 +13,6 @@ private:
 public:
 	void crear(std::string nU, std::string sU, std::string cU, std::string ceU, std::string dU);
 
-	void executar();
+	std::string executar();
 };
 

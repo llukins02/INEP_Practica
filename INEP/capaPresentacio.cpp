@@ -7,12 +7,14 @@
 #include "Videoconsola.h"
 #include "TxConsultaUsuari.h"
 #include "TxInfoCompres.h"
+#include "TxEsborraUsuari.h"
 #include <iostream>
 #include <pqxx/pqxx>
 
 using namespace std;
 
 void usuariIS();
+void noUsuariIS();
 
 void gUsuari() {
 	int opcio = 0;
@@ -41,7 +43,22 @@ void gUsuari() {
 			//Modificar Usuari
 		}
 		else if (opcio == 3) {
-			//Esborrar Usuari
+			string c;
+			cout << "** Esborrar usuari **\n Per confirmar l'esborrat, s'ha d'entrar la contrasenya...\n Contrasenya: ";
+			cin.ignore();
+			getline(cin, c);
+			TxEsborraUsuari tx;
+			tx.create(c);
+			bool borrat = tx.execute();
+			if (borrat) { 
+				cout << "Usuari borrat correctament!\n\n";
+				TxTancaSessio tx;
+				tx.crear();
+				tx.executar();
+				noUsuariIS();
+				opcio = 4;
+			}
+			else { cout << "Contrasenya incorrecta, no s'ha borrat l'usuari.\n\n"; }
 		}
 	}
 }
@@ -63,7 +80,9 @@ void noUsuariIS() {
 			cout << "BD actual = (" + bd.getString() + ")\n"
 			"Introdueix els seguents camps en l'ordre donat:\ndbname:\nuser:\npassword:\nhostaddr:\nport:\n";
 			cin >> n >> u >> p >> a >> po;
-			bd.create(n, u, p, a, po);
+			bool created = bd.create(n, u, p, a, po);
+			if (created){ cout << "Connexio a la base de dades feta correctament!\n\n"; }
+			else { cerr << "No es possible connectar-se a la BD, dades incorrectes\n\n"; }
 		}
 		else if (opcio == 1) {
 			string s, c;
@@ -96,8 +115,7 @@ void noUsuariIS() {
 			getline(cin, dn);
 			TxRegistraUsuari tx;
 			tx.crear(n, s, c, ce, dn);
-			tx.executar();
-			cout << endl;
+			cout << tx.executar();
 		}
 	}
 }
@@ -137,6 +155,7 @@ void usuariIS() {
 				tx.executar();
 				Videoconsola& v = Videoconsola::getInstance();
 				if (v.obteUsuari().obteSobrenom().empty()) {
+					cout << "Sessio tancada correctament!" << endl;
 					noUsuariIS();
 					opcio = 5;
 				}

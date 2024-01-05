@@ -13,7 +13,7 @@ public:
 		return instance;
 	}
 
-	void create(std::string n, std::string u, std::string p, std::string a, std::string po);
+	bool create(std::string n, std::string u, std::string p, std::string a, std::string po);
 
 	std::string getString();
 };

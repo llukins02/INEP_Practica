@@ -10,8 +10,8 @@ void TxRegistraUsuari::crear(std::string nU, std::string sU, std::string cU, std
 	dataNaixamentU = dU;
 }
 
-void TxRegistraUsuari::executar(){
+std::string TxRegistraUsuari::executar(){
 	PasarelaUsuari u;
 	u.crear(nomU, sobrenomU, contrasenyaU, correuElectronicU, dataNaixamentU);
-	u.insereix();
+	return u.insereix();
 }

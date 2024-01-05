@@ -11,30 +11,28 @@ void PasarelaUsuari::crear(std::string n, std::string s, std::string c, std::str
 	dataNaixamentU =  dn;
 }
 
-void PasarelaUsuari::insereix() {
+std::string PasarelaUsuari::insereix() {
 	try {
 		configBD& bd = configBD::getInstance();
 		pqxx::connection conn = pqxx::connection(bd.getString());
 		pqxx::work txn(conn);
 		pqxx::result res = txn.exec("INSERT INTO public.\"Usuari\"(nom, sobrenom, contrasenya, \"correuElectronic\", \"dataNaixement\")VALUES('"+nomU+"', '"+sobrenomU+"', '"+contrasenyaU+"', '"+correuElectronicU+"', '"+dataNaixamentU+"'); ");
 		txn.commit();
-		std::cout << "Usuari " << sobrenomU << ", registrat correctament!" << std::endl;
+		return "Usuari " + sobrenomU + ", registrat correctament!\n\n";
 	}
 	catch (const std::exception& e) {
 		std::string error = e.what();
-		std::cerr << error << std::endl;
 		if (error.find("sobrenom") != std::string::npos) {
-			std::cerr << "Ja existeix aquest sobrenom, siusplau tria'n un altre." << std::endl;
+			return "Ja existeix aquest sobrenom, siusplau tria'n un altre.\n\n";
 		}
 		else if (error.find("correuElectronic") != std::string::npos) {
-			std::cerr << "Ja existeix un compte amb aquest correu electronic, siusplau tria'n un altre." << std::endl;
+			return "Ja existeix un compte amb aquest correu electronic, siusplau tria'n un altre.\n\n";
 		}
 		else if (error.find("dataNaixement") != std::string::npos) {
-			std::cerr << "Data de naixement amb format incorrecte, siusplau torna-ho a posar amb el format segent¨: DD/MM/AAAA" << std::endl;
-		}
-		
+			return "Data de naixement amb format incorrecte, siusplau torna-ho a posar amb el format segent¨: DD/MM/AAAA\n\n";
+		}	
 		else {
-			std::cerr << error << std::endl;
+			return error;
 		}
 		
 	}
@@ -42,7 +40,19 @@ void PasarelaUsuari::insereix() {
 
 void PasarelaUsuari::modifica() {} //exc{usuariNoExisteix}
 
-void PasarelaUsuari::esborra() {} //exc{usuariNoExisteix}
+void PasarelaUsuari::esborra() {
+	try {
+		configBD& bd = configBD::getInstance();
+		pqxx::connection conn = pqxx::connection(bd.getString());
+		pqxx::work txn(conn);
+		pqxx::result res = txn.exec("DELETE FROM public.\"Compra\" WHERE \"Compra\".usuari = '" + sobrenomU + "';");
+		res = txn.exec("DELETE FROM public.\"Usuari\" WHERE \"Usuari\".nom = '" + sobrenomU + "';");
+		txn.commit();
+	}
+	catch (const std::exception& e) {
+		std::cerr << e.what() << std::endl;
+	}
+} //exc{usuariNoExisteix}
 
 std::string PasarelaUsuari::obteNom(){
 	return nomU;

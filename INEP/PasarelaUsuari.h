@@ -12,7 +12,7 @@ private:
 public:
 	void crear(std::string n, std::string s, std::string c, std::string ce, std::string dn);
 
-	void insereix(); //exc{usuariExisteix, correuExisteix}
+	std::string insereix(); //exc{usuariExisteix, correuExisteix}
 
 	void modifica(); //exc{usuariNoExisteix}
 

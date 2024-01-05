@@ -8,6 +8,6 @@ private:
 public:
 	void create(std::string cU);
 
-	void execute();
+	bool execute();
 };
 
