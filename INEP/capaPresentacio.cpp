@@ -8,6 +8,7 @@
 #include "TxConsultaUsuari.h"
 #include "TxInfoCompres.h"
 #include "TxEsborraUsuari.h"
+#include "TxConsultaCompres.h"
 #include <iostream>
 #include <pqxx/pqxx>
 
@@ -68,7 +69,7 @@ void gUsuari() {
 void gCompra() {
 	int opcio = 0;
 	while (opcio != 4) {
-		cout << "------------------" << endl << "  Gestionar Compres" << endl << "------------------" << endl
+		cout << "---------------------" << endl << "  Gestionar Compres" << endl << "---------------------" << endl
 			<< "1. Comprar Videojoc" << endl << "2. Comprar Paquet" << endl << "3. Consultar Compres" << endl << "4. Tornar"
 			<< endl << "Opcio: ";
 		cin >> opcio;
@@ -82,7 +83,25 @@ void gCompra() {
 			//Modificar Usuari
 		}
 		else if (opcio == 3) {
-			//Veure compres
+			cout << "\n** Consulta compres **\n";
+			TxConsultaCompres cc;
+			cc.consultaVideojocs();
+			vector<PasarelaCompra> pcs = cc.getCompres();
+			for (int i = 0; i < pcs.size(); i++) {
+				cout << pcs[i].getData() << ": ";
+				if (pcs[i].getTipus() == "videojoc") {
+					PasarelaVideojoc v = pcs[i].getVideojoc();
+					cout << v.getNom() << "; " << v.getDescripcio() << "; " << pcs[i].getPreuPagat() << endl;
+				}
+				else {
+					PasarelaPaquetVideojoc pv = pcs[i].getPaquet();
+					cout << pv.getNom() << "; " << pv.getDescripcio() << "; " << pcs[i].getPreuPagat() << "\n   Videojocs:\n";
+					for (int j = 0; j < pv.getVideojocs().size(); j++) {
+						PasarelaVideojoc v = pv.getVideojocs()[j];
+						cout << "    " << v.getNom() << "; " << v.getDescripcio() << endl;
+					}
+				}
+			}
 		}
 		cout << endl;
 	}

@@ -134,6 +134,7 @@
     <ClCompile Include="CercadorCompres.cpp" />
     <ClCompile Include="CercadorElemCompra.cpp" />
     <ClCompile Include="CercadorUsuari.cpp" />
+    <ClCompile Include="CercadorVideojoc.cpp" />
     <ClCompile Include="configBD.cpp" />
     <ClCompile Include="CtrlModificaUsuari.cpp" />
     <ClCompile Include="capaPresentacio.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="CercadorCompres.h" />
     <ClInclude Include="CercadorElemCompra.h" />
     <ClInclude Include="CercadorUsuari.h" />
+    <ClInclude Include="CercadorVideojoc.h" />
     <ClInclude Include="configBD.h" />
     <ClInclude Include="CtrlModificaUsuari.h" />
     <ClInclude Include="PasarelaCompra.h" />

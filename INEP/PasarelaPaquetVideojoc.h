@@ -6,5 +6,12 @@ class PasarelaPaquetVideojoc : public PasarelaElemCompra
 {
 private:
 	std::vector<PasarelaVideojoc> videojocs;
+
+public:
+	void add(PasarelaVideojoc v);
+
+	void crear(PasarelaElemCompra eC);
+
+	std::vector<PasarelaVideojoc> getVideojocs();
 };
 

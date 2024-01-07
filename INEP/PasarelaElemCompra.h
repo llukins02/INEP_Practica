@@ -1,5 +1,4 @@
 #pragma once
-#include "PasarelaVideojoc.h"
 #include <string>
 
 class PasarelaElemCompra

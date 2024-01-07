@@ -13,6 +13,6 @@ public:
 	int getMinsEstimat();
 	std::string getGenere();
 
-	void crear(int q, std::string dL, int mE, std::string g);
+	void crear(int q, std::string dL, int mE, std::string g, PasarelaElemCompra eC);
 };
 

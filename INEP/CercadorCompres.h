@@ -5,6 +5,6 @@
 class CercadorCompres
 {
 public:
-	std::vector<PasarelaCompra> obteCompresUsuari(std::string sobrenom);
+	std::vector<PasarelaCompra> obteCompresUsuari(PasarelaUsuari u);
 };
 
