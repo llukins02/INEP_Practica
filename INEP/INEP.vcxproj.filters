@@ -105,6 +105,9 @@
     <ClCompile Include="CercadorVideojoc.cpp">
       <Filter>Source Files\Cercador</Filter>
     </ClCompile>
+    <ClCompile Include="CercadorPaquetVideojoc.cpp">
+      <Filter>Source Files\Cercador</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -168,7 +171,10 @@
       <Filter>Header Files\Pasarela</Filter>
     </ClInclude>
     <ClInclude Include="CercadorVideojoc.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Cercador</Filter>
+    </ClInclude>
+    <ClInclude Include="CercadorPaquetVideojoc.h">
+      <Filter>Header Files\Cercador</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

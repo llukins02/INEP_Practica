@@ -133,6 +133,7 @@
   <ItemGroup>
     <ClCompile Include="CercadorCompres.cpp" />
     <ClCompile Include="CercadorElemCompra.cpp" />
+    <ClCompile Include="CercadorPaquetVideojoc.cpp" />
     <ClCompile Include="CercadorUsuari.cpp" />
     <ClCompile Include="CercadorVideojoc.cpp" />
     <ClCompile Include="configBD.cpp" />
@@ -156,6 +157,7 @@
   <ItemGroup>
     <ClInclude Include="CercadorCompres.h" />
     <ClInclude Include="CercadorElemCompra.h" />
+    <ClInclude Include="CercadorPaquetVideojoc.h" />
     <ClInclude Include="CercadorUsuari.h" />
     <ClInclude Include="CercadorVideojoc.h" />
     <ClInclude Include="configBD.h" />
