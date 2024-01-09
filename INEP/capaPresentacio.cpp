@@ -9,6 +9,7 @@
 #include "TxInfoCompres.h"
 #include "TxEsborraUsuari.h"
 #include "TxConsultaCompres.h"
+#include "TxCompraVidejoc.h"
 #include <iostream>
 #include <pqxx/pqxx>
 
@@ -77,7 +78,13 @@ void gCompra() {
 			cerr << "Opcio no valida!\n" << endl;
 		}
 		else if (opcio == 1) {
-			//Comprar videojoc	
+			string n;
+			cout << "** Comprar videojoc **\nIntrodueixi el nom del videojoc desitjat: ";
+			cin.ignore();
+			getline(cin, n);
+			TxCompraVidejoc tx;
+			string s = tx.crear(n);
+			cout << s;
 		}
 		else if (opcio == 2) {
 			//Modificar Usuari

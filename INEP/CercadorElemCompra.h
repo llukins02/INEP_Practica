@@ -4,6 +4,6 @@
 class CercadorElemCompra
 {
 public:
-	void cerca(std::string nom, PasarelaCompra& u);
+	PasarelaElemCompra cerca(std::string nom);
 };
 

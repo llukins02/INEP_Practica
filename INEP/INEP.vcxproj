@@ -145,6 +145,7 @@
     <ClCompile Include="PasarelaUsuari.cpp" />
     <ClCompile Include="PasarelaVideojoc.cpp" />
     <ClCompile Include="Transaccio.cpp" />
+    <ClCompile Include="TxCompraVidejoc.cpp" />
     <ClCompile Include="TxConsultaCompres.cpp" />
     <ClCompile Include="TxConsultaUsuari.cpp" />
     <ClCompile Include="TxEsborraUsuari.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="PasarelaVideojoc.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Transaccio.h" />
+    <ClInclude Include="TxCompraVidejoc.h" />
     <ClInclude Include="TxConsultaCompres.h" />
     <ClInclude Include="TxConsultaUsuari.h" />
     <ClInclude Include="TxEsborraUsuari.h" />
