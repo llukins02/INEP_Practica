@@ -1,4 +1,6 @@
 #include "CercadorPaquetVideojoc.h"
+#include "CercadorElemCompra.h"
+#include "PasarelaElemCompra.h"
 #include <iostream>
 
 PasarelaPaquetVideojoc CercadorPaquetVideojoc::cerca(std::string nom, PasarelaElemCompra elemCompra) {
@@ -23,4 +25,30 @@ PasarelaPaquetVideojoc CercadorPaquetVideojoc::cerca(std::string nom, PasarelaEl
 		std::cerr << "Error: " << e.what() << std::endl;
 	}
 	return pv;
+}
+
+std::vector<PasarelaVideojoc> CercadorPaquetVideojoc::cercaVidejocsRelacionats(std::string nom) {
+	std::vector<PasarelaVideojoc> vpv;
+	configBD& bd = configBD::getInstance();
+	pqxx::connection conn = pqxx::connection(bd.getString());
+	CercadorElemCompra cec;
+	try {
+		pqxx::work txn(conn);
+		pqxx::result result = txn.exec("SELECT * FROM public.\"Conte\" WHERE videojoc = '" + nom + "';");
+		for (size_t i = 0; i < result.size(); ++i) {
+			PasarelaElemCompra ec = cec.cerca(result[i][0].c_str());
+			PasarelaPaquetVideojoc pv = cerca(result[i][0].c_str(), ec);
+			for (int j = 0; j < pv.getVideojocs().size(); j++) {
+				if (pv.getVideojocs()[j].getNom() != nom) {
+					vpv.push_back(pv.getVideojocs()[j]);
+				}
+			}
+		}
+
+		txn.commit();
+	}
+	catch (const std::exception& e) {
+		std::cerr << "Error: " << e.what() << std::endl;
+	}
+	return vpv;
 }

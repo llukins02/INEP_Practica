@@ -79,12 +79,27 @@ void gCompra() {
 		}
 		else if (opcio == 1) {
 			string n;
+			bool error = false;
 			cout << "** Comprar videojoc **\nIntrodueixi el nom del videojoc desitjat: ";
 			cin.ignore();
 			getline(cin, n);
 			TxCompraVidejoc tx;
-			string s = tx.crear(n);
-			cout << s;
+			string s = tx.crear(n, error);
+			cout << s << endl;
+			if (!error) {
+				string confirmacio = "";
+				while (confirmacio != "S" && confirmacio != "N") {
+					cout << "Vols continuar amb la compra (S/N):";
+					cin >> confirmacio;
+					if (confirmacio != "S" && confirmacio != "N") {
+						cout << "caracter no valid, escriu 'S' per tancar la sessio i 'N' per mantenir-la" << endl;
+					}
+				}
+				if (confirmacio == "S") {
+					s = tx.executa(error);
+					cout << s << endl;
+				}
+			}
 		}
 		else if (opcio == 2) {
 			//Modificar Usuari

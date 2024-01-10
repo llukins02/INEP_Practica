@@ -8,5 +8,7 @@ class CercadorPaquetVideojoc
 {
 public:
 	PasarelaPaquetVideojoc cerca(std::string nom, PasarelaElemCompra elemCompra);
+
+	std::vector<PasarelaVideojoc> cercaVidejocsRelacionats(std::string nom);
 };
 

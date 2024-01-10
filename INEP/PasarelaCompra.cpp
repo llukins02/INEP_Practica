@@ -1,5 +1,7 @@
 #include "PasarelaCompra.h"
+#include "configBD.h"
 #include <iostream>
+#include <pqxx/pqxx>
 
 void PasarelaCompra::create(PasarelaUsuari u, std::string d, float p) {
 	usuari = u;
@@ -15,6 +17,23 @@ void PasarelaCompra::createV(PasarelaVideojoc video) {
 void PasarelaCompra::createPV(PasarelaPaquetVideojoc paquet) {
 	pv = paquet;
 	tipus = "paquet";
+}
+
+std::string PasarelaCompra::insereix() {
+	try {
+		std::string nom = pv.getNom();
+		if (tipus == "videojoc") { nom = v.getNom(); }
+		std::cout << "nom:" + nom;
+		configBD& bd = configBD::getInstance();
+		pqxx::connection conn = pqxx::connection(bd.getString());
+		pqxx::work txn(conn);
+		pqxx::result res = txn.exec("INSERT INTO public.\"Compra\"(usuari, element, data, \"preuPagat\")VALUES('" + usuari.obteSobrenom() + "', '" + nom + "', '" + data + "', '" + std::to_string(preuPagat) + "'); ");
+		txn.commit();
+		return "Compra Registrada: "+data;
+	}
+	catch (const std::exception& e) {
+			return e.what();
+	}
 }
 
 PasarelaUsuari PasarelaCompra::getUsuari() {

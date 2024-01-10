@@ -2,6 +2,7 @@
 #include "Videoconsola.h"
 #include "CercadorElemCompra.h"
 #include "CercadorVideojoc.h"
+#include "CercadorPaquetVideojoc.h"
 #include "CercadorCompres.h"
 #include <ctime>
 #include <iostream>
@@ -21,32 +22,36 @@ int getEdat(std::string naix) {
 	na = std::stoi(std::format("{:%Y}", now));
 	nm = std::stoi(std::format("{:%m}", now));
 	nd = std::stoi(std::format("{:%d}", now));
-	int edat = na - da;
-
-	// Adjust for the month and day
+	int edat = na - da +1;
 	if (nm < dm || (nm == dm && nd < dd)) {
 		edat--;
 	}
 	return edat;
 }
 
-std::string TxCompraVidejoc::crear(std::string nom){
+std::string TxCompraVidejoc::crear(std::string nom, bool &error){
 	CercadorElemCompra cec;
 	CercadorVideojoc cv;
 	std::string ret;
 	PasarelaElemCompra ec = cec.cerca(nom);
-	PasarelaVideojoc v = cv.cerca(nom, ec);
+	v = cv.cerca(nom, ec);
 	if (v.getTipus() != "videojoc") {
 		ret = "Error: aquest videojoc no existeix!";
+		error = true;
+	}
+	else {
+		ret = "Informacio videojoc...\nNom videojoc: " + v.getNom() + "\nDescripcio: " + v.getDescripcio() + "\nQualificacio edat: " +
+			std::to_string(v.getQualificacioEdat()) + "\nGenere: " + v.getGenere() + "\nData llansament: " + v.getDataLlansament() + "\nPreu: " +
+			std::to_string(v.getPreu()) + " euros\n";
 	}
 	return ret;
 }
 
-std::string TxCompraVidejoc::executa(){
+std::string TxCompraVidejoc::executa(bool &error){
+	error = false;
 	std::string nom = v.getNom();
 	Videoconsola vc = Videoconsola::getInstance();
-	CercadorElemCompra cec;
-	CercadorVideojoc cv;
+	CercadorPaquetVideojoc cpv;
 	CercadorCompres cc;
 	std::string ret;
 	std::vector<PasarelaCompra> vpc = cc.obteCompresUsuari(vc.obteUsuari());
@@ -72,14 +77,28 @@ std::string TxCompraVidejoc::executa(){
 	}
 	if (teElJoc) {
 		ret = "Error: l'usuari ja te en propietat el videojoc: " + nom + "!";
+		error = true;
 	}
 	else {
-		int edatUsuari = getEdat(vc.obteUsuari().obteNaixament());
+		int edatUsuari = getEdat(vc.obteUsuari().obteNaixament())-1;
 		if(edatUsuari < v.getQualificacioEdat()){
-			ret = "Error: El videojoc: " + nom + "te una restriccio d'edat que l'usuari no compleix! (edatUsuari = "+std::to_string(edatUsuari) + "; restricioEdat = " + std::to_string(v.getQualificacioEdat());
+			ret = "Error: El videojoc: " + nom + " es per majors de "+std::to_string(v.getQualificacioEdat()) + " anys!";
+			error = true;
 		}
-		else if (true) {
-			ret = " meh";
+		else {
+			auto now = (std::chrono::system_clock::now());
+			std::string data = std::format("{:%d}", now) + "-" + std::format("{:%m}", now) + "-" + std::format("{:%Y}", now) + " " + std::format("{:%X}", now);
+			PasarelaCompra pc;
+			pc.create(vc.obteUsuari(), data, v.getPreu());
+			pc.createV(v);
+			ret = pc.insereix();
+			std::vector<PasarelaVideojoc> vpv = cpv.cercaVidejocsRelacionats(nom);
+			ret += "\nJocs relacionats:";
+			for (int i = 0; i < vpv.size(); i++) {
+				if (getEdat(vpv[i].getDataLlansament()) > 0) {
+					ret += "\n- " + vpv[i].getNom() + "; " + vpv[i].getDescripcio() + "; " + std::to_string(vpv[i].getPreu()) + " euros.";
+				}
+			}
 		}
 	}
 

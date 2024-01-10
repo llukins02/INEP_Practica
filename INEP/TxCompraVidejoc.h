@@ -6,8 +6,8 @@ class TxCompraVidejoc : public Transaccio
 private:
 	PasarelaVideojoc v;
 public:
-	std::string crear(std::string nom);
+	std::string crear(std::string nom, bool &error);
 
-	std::string executa();
+	std::string executa(bool &error);
 };
 

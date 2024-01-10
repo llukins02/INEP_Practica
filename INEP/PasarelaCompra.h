@@ -23,6 +23,8 @@ public:
 
 	void createPV(PasarelaPaquetVideojoc paquet);
 
+	std::string insereix();
+
 	PasarelaUsuari getUsuari();
 
 	std::string getTipus();
