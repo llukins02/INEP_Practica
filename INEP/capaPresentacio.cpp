@@ -13,10 +13,61 @@
 #include <iostream>
 #include <pqxx/pqxx>
 
+#include "TxConsultaVideojoc.h"
+
 using namespace std;
 
 void usuariIS();
 void noUsuariIS();
+
+void cVideojocs() {
+	
+	int opcio = 0;
+	while (opcio != 7) {
+		cout << "------------------" << endl << "  Menu Principal" << endl << "------------------" << endl
+			<< "1. Consultar videojoc" << endl << "2. Consultar videojocs" << endl << "3. Consultar videojocs per edat" << endl << "4. Consultar novetats videojocs"
+			<< endl << "5. Consultar paquet videojocs" << endl << "6. Consultar paquets videojocs" << endl << "7. Tornar" << endl << "Opcio: ";
+		cin >> opcio;
+		cout << endl;
+		if (opcio > 7 || opcio < 1) {
+			cerr << "Opcio no valida!\n" << endl;
+		}
+		else if (opcio == 1) {
+			//Consultar videojoc
+			cout << "\n** Consulta videojoc **\n";
+			string nom;
+			cin.ignore();
+			getline(cin, nom);
+			TxConsultaVideojoc txV;
+
+			txV.crear(nom);
+			std::vector<std::string> infoV = txV.executar();
+			cout << "Nom Videojoc: " << infoV[0] << "\nDescripcio: " << infoV[1] << "\nQualificacio edat: " << infoV[2] << "\nGenere: " << infoV[3]
+				<< "\nData llancament: " << infoV[4] << "\nPreu: " << infoV[5];
+
+		}
+		else if (opcio == 2) {
+			//Consultar videojocs
+		}
+		else if (opcio == 3) {
+			//consultar videojocs per edat
+			cVideojocs();
+		}
+		else if (opcio == 4) {
+			//Consultar novetats videojocs
+			
+		}
+		else if (opcio == 5) {
+			//Consultar paquet videojocs
+			
+		}
+		else if (opcio == 6) {
+			//Consultar paquets videojocs
+			
+		}
+		cout << endl;
+	}
+}
 
 void gUsuari() {
 	int opcio = 0;
@@ -46,7 +97,7 @@ void gUsuari() {
 		}
 		else if (opcio == 3) {
 			string c;
-			cout << "** Esborrar usuari **\nAdvertencia! El proces d'esborrar no es reversible, perdàs tots els teus videojocs i el teu compte"
+			cout << "** Esborrar usuari **\nAdvertencia! El proces d'esborrar no es reversible, perdï¿½s tots els teus videojocs i el teu compte"
 				"\nPer confirmar l'esborrat, s'ha d'entrar la contrasenya...\nContrasenya: ";
 			cin.ignore();
 			getline(cin, c);
@@ -206,6 +257,7 @@ void usuariIS() {
 		}
 		else if (opcio == 3) {
 			//consulta videojoc
+			cVideojocs();
 		}
 		else if (opcio == 4) {
 			string confirmacio = "";
