@@ -12,6 +12,8 @@
 #include "TxCompraVidejoc.h"
 #include "TxCompraPaquet.h"
 #include "TxConsultaVideojoc.h"
+#include "TxConsultaVideojocs.h"
+#include "TxConsultaPaquet.h"
 #include <iostream>
 #include <pqxx/pqxx>
 
@@ -50,10 +52,13 @@ void cVideojocs() {
 		}
 		else if (opcio == 2) {
 			//Consultar videojocs
+			cout << "\n** Consulta videojocs **\n";
+			TxConsultaVideojocs cv;
+			cv.consultaVideojocs();
 		}
 		else if (opcio == 3) {
 			//consultar videojocs per edat
-			cVideojocs();
+			
 		}
 		else if (opcio == 4) {
 			//Consultar novetats videojocs
@@ -61,7 +66,16 @@ void cVideojocs() {
 		}
 		else if (opcio == 5) {
 			//Consultar paquet videojocs
+			cout << "\n** Consulta paquet **\n";
+			string nom;
+			cin.ignore();
+			getline(cin, nom);
+			TxConsultaPaquet cp;
+			bool error = false;
+			cp.crear(nom, error);
+			string out = cp.executar();
 			
+			cout << out << endl;
 		}
 		else if (opcio == 6) {
 			//Consultar paquets videojocs
