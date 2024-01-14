@@ -40,6 +40,12 @@
     <Filter Include="Source Files\Tx\Compra">
       <UniqueIdentifier>{0f8cfd17-e096-429a-91de-2a16c1bc15cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Consulta">
+      <UniqueIdentifier>{616f4fa8-8dcd-4f7b-ac6a-4122c2ca9abb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Consulta">
+      <UniqueIdentifier>{108deeea-222e-41c6-b8b2-643ff66ae019}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="capaPresentacio.cpp">
@@ -96,9 +102,6 @@
     <ClCompile Include="PasarelaVideojoc.cpp">
       <Filter>Source Files\Pasarela</Filter>
     </ClCompile>
-    <ClCompile Include="TxConsultaCompres.cpp">
-      <Filter>Source Files\Tx\Compra</Filter>
-    </ClCompile>
     <ClCompile Include="PasarelaPaquetVideojoc.cpp">
       <Filter>Source Files\Pasarela</Filter>
     </ClCompile>
@@ -109,6 +112,15 @@
       <Filter>Source Files\Cercador</Filter>
     </ClCompile>
     <ClCompile Include="TxCompraVidejoc.cpp">
+      <Filter>Source Files\Tx\Compra</Filter>
+    </ClCompile>
+    <ClCompile Include="TxConsultaCompres.cpp">
+      <Filter>Source Files\Consulta</Filter>
+    </ClCompile>
+    <ClCompile Include="TxConsultaVideojoc.cpp">
+      <Filter>Source Files\Consulta</Filter>
+    </ClCompile>
+    <ClCompile Include="TxCompraPaquet.cpp">
       <Filter>Source Files\Tx\Compra</Filter>
     </ClCompile>
   </ItemGroup>
@@ -164,9 +176,6 @@
     <ClInclude Include="CtrlModificaUsuari.h">
       <Filter>Header Files\TxUsuari</Filter>
     </ClInclude>
-    <ClInclude Include="TxConsultaCompres.h">
-      <Filter>Header Files\TxCompra</Filter>
-    </ClInclude>
     <ClInclude Include="PasarelaVideojoc.h">
       <Filter>Header Files\Pasarela</Filter>
     </ClInclude>
@@ -182,10 +191,22 @@
     <ClInclude Include="TxCompraVidejoc.h">
       <Filter>Header Files\TxCompra</Filter>
     </ClInclude>
+    <ClInclude Include="TxConsultaCompres.h">
+      <Filter>Header Files\Consulta</Filter>
+    </ClInclude>
+    <ClInclude Include="TxConsultaVideojoc.h">
+      <Filter>Header Files\Consulta</Filter>
+    </ClInclude>
+    <ClInclude Include="TxCompraPaquet.h">
+      <Filter>Header Files\TxCompra</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="INEP.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="INEP.APS" />
   </ItemGroup>
 </Project>

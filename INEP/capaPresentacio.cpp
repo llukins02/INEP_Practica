@@ -10,10 +10,12 @@
 #include "TxEsborraUsuari.h"
 #include "TxConsultaCompres.h"
 #include "TxCompraVidejoc.h"
+#include "TxCompraPaquet.h"
+#include "TxConsultaVideojoc.h"
 #include <iostream>
 #include <pqxx/pqxx>
 
-#include "TxConsultaVideojoc.h"
+
 
 using namespace std;
 
@@ -143,17 +145,38 @@ void gCompra() {
 					cout << "Vols continuar amb la compra (S/N):";
 					cin >> confirmacio;
 					if (confirmacio != "S" && confirmacio != "N") {
-						cout << "caracter no valid, escriu 'S' per tancar la sessio i 'N' per mantenir-la" << endl;
+						cout << "caracter no valid, escriu 'S' per continuar amb la compra i 'N' per cancelar-la" << endl;
 					}
 				}
 				if (confirmacio == "S") {
-					s = tx.executa(error);
+					s = tx.executa();
 					cout << s << endl;
 				}
 			}
 		}
 		else if (opcio == 2) {
-			//Modificar Usuari
+			string n;
+			bool error = false;
+			cout << "** Comprar paquet **\nIntrodueixi el nom del paquet desitjat: ";
+			cin.ignore();
+			getline(cin, n);
+			TxCompraPaquet tx;
+			string s = tx.crear(n, error);
+			cout << s << endl;
+			if (!error) {
+				string confirmacio = "";
+				while (confirmacio != "S" && confirmacio != "N") {
+					cout << "Vols continuar amb la compra (S/N):";
+					cin >> confirmacio;
+					if (confirmacio != "S" && confirmacio != "N") {
+						cout << "caracter no valid, escriu 'S' per continuar amb la compra i 'N' per cancelar-la" << endl;
+					}
+				}
+				if (confirmacio == "S") {
+					s = tx.executa();
+					cout << s << endl;
+				}
+			}
 		}
 		else if (opcio == 3) {
 			cout << "\n** Consulta compres **\n";

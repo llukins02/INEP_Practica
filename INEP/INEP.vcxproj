@@ -145,9 +145,11 @@
     <ClCompile Include="PasarelaUsuari.cpp" />
     <ClCompile Include="PasarelaVideojoc.cpp" />
     <ClCompile Include="Transaccio.cpp" />
+    <ClCompile Include="TxCompraPaquet.cpp" />
     <ClCompile Include="TxCompraVidejoc.cpp" />
     <ClCompile Include="TxConsultaCompres.cpp" />
     <ClCompile Include="TxConsultaUsuari.cpp" />
+    <ClCompile Include="TxConsultaVideojoc.cpp" />
     <ClCompile Include="TxEsborraUsuari.cpp" />
     <ClCompile Include="TxInfoCompres.cpp" />
     <ClCompile Include="TxIniciSessio.cpp" />
@@ -170,9 +172,11 @@
     <ClInclude Include="PasarelaVideojoc.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Transaccio.h" />
+    <ClInclude Include="TxCompraPaquet.h" />
     <ClInclude Include="TxCompraVidejoc.h" />
     <ClInclude Include="TxConsultaCompres.h" />
     <ClInclude Include="TxConsultaUsuari.h" />
+    <ClInclude Include="TxConsultaVideojoc.h" />
     <ClInclude Include="TxEsborraUsuari.h" />
     <ClInclude Include="TxInfoCompres.h" />
     <ClInclude Include="TxIniciSessio.h" />
@@ -182,6 +186,9 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="INEP.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="INEP.APS" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

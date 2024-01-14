@@ -8,7 +8,7 @@ void PasarelaPaquetVideojoc::crear(PasarelaElemCompra eC) {
 	nom = eC.getNom();
 	descripcio = eC.getDescripcio();
 	preu = eC.getPreu();
-	tipus = "videojoc";
+	tipus = eC.getTipus();
 }
 
 std::vector<PasarelaVideojoc> PasarelaPaquetVideojoc::getVideojocs() {

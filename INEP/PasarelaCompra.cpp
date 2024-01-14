@@ -23,7 +23,6 @@ std::string PasarelaCompra::insereix() {
 	try {
 		std::string nom = pv.getNom();
 		if (tipus == "videojoc") { nom = v.getNom(); }
-		std::cout << "nom:" + nom;
 		configBD& bd = configBD::getInstance();
 		pqxx::connection conn = pqxx::connection(bd.getString());
 		pqxx::work txn(conn);

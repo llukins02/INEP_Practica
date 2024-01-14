@@ -47,8 +47,7 @@ std::string TxCompraVidejoc::crear(std::string nom, bool &error){
 	return ret;
 }
 
-std::string TxCompraVidejoc::executa(bool &error){
-	error = false;
+std::string TxCompraVidejoc::executa(){
 	std::string nom = v.getNom();
 	Videoconsola vc = Videoconsola::getInstance();
 	CercadorPaquetVideojoc cpv;
@@ -77,13 +76,11 @@ std::string TxCompraVidejoc::executa(bool &error){
 	}
 	if (teElJoc) {
 		ret = "Error: l'usuari ja te en propietat el videojoc: " + nom + "!";
-		error = true;
 	}
 	else {
 		int edatUsuari = getEdat(vc.obteUsuari().obteNaixament())-1;
 		if(edatUsuari < v.getQualificacioEdat()){
 			ret = "Error: El videojoc: " + nom + " es per majors de "+std::to_string(v.getQualificacioEdat()) + " anys!";
-			error = true;
 		}
 		else {
 			auto now = (std::chrono::system_clock::now());

@@ -1,10 +1,10 @@
 #pragma once
 #include "Transaccio.h"
-#include "PasarelaVideojoc.h"
-class TxCompraVidejoc : public Transaccio
+#include "PasarelaPaquetVideojoc.h"
+class TxCompraPaquet : Transaccio
 {
 private:
-	PasarelaVideojoc v;
+	PasarelaPaquetVideojoc pv;
 public:
 	std::string crear(std::string nom, bool &error);
 
