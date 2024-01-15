@@ -148,8 +148,10 @@
     <ClCompile Include="TxCompraPaquet.cpp" />
     <ClCompile Include="TxCompraVidejoc.cpp" />
     <ClCompile Include="TxConsultaCompres.cpp" />
+    <ClCompile Include="TxConsultaPaquet.cpp" />
     <ClCompile Include="TxConsultaUsuari.cpp" />
     <ClCompile Include="TxConsultaVideojoc.cpp" />
+    <ClCompile Include="TxConsultaVideojocs.cpp" />
     <ClCompile Include="TxEsborraUsuari.cpp" />
     <ClCompile Include="TxInfoCompres.cpp" />
     <ClCompile Include="TxIniciSessio.cpp" />
@@ -175,8 +177,10 @@
     <ClInclude Include="TxCompraPaquet.h" />
     <ClInclude Include="TxCompraVidejoc.h" />
     <ClInclude Include="TxConsultaCompres.h" />
+    <ClInclude Include="TxConsultaPaquet.h" />
     <ClInclude Include="TxConsultaUsuari.h" />
     <ClInclude Include="TxConsultaVideojoc.h" />
+    <ClInclude Include="TxConsultaVideojocs.h" />
     <ClInclude Include="TxEsborraUsuari.h" />
     <ClInclude Include="TxInfoCompres.h" />
     <ClInclude Include="TxIniciSessio.h" />

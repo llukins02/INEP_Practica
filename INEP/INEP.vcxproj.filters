@@ -123,6 +123,12 @@
     <ClCompile Include="TxCompraPaquet.cpp">
       <Filter>Source Files\Tx\Compra</Filter>
     </ClCompile>
+    <ClCompile Include="TxConsultaPaquet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TxConsultaVideojocs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -199,6 +205,12 @@
     </ClInclude>
     <ClInclude Include="TxCompraPaquet.h">
       <Filter>Header Files\TxCompra</Filter>
+    </ClInclude>
+    <ClInclude Include="TxConsultaVideojocs.h">
+      <Filter>Header Files\Consulta</Filter>
+    </ClInclude>
+    <ClInclude Include="TxConsultaPaquet.h">
+      <Filter>Header Files\Consulta</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

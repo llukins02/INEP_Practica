@@ -10,5 +10,5 @@ private:
 public:
 	void crear(std::string nom, bool &error);
 
-	std::vector<std::string> executar();
+	std::string executar();
 };

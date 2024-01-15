@@ -54,7 +54,7 @@ void cVideojocs() {
 			//Consultar videojocs
 			cout << "\n** Consulta videojocs **\n";
 			TxConsultaVideojocs cv;
-			cv.consultaVideojocs();
+			cv.crear("");
 		}
 		else if (opcio == 3) {
 			//consultar videojocs per edat

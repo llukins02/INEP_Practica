@@ -1,4 +1,4 @@
-#include "TxCompraPaquet.h"
+#include "TxConsultaPaquet.h"
 #include "CercadorElemCompra.h"
 #include "CercadorPaquetVideojoc.h"
 #include "CercadorCompres.h"
@@ -29,6 +29,6 @@ void TxConsultaPaquet::crear(std::string nom, bool &error) {
 	cp = ret;
 }
 
-std::vector<std::string> TxConsultaPaquet::executar(){
+std::string TxConsultaPaquet::executar(){
 	return cp;
 }
