@@ -2,6 +2,7 @@
 #include "CercadorElemCompra.h"
 #include "CercadorPaquetVideojoc.h"
 #include "CercadorCompres.h"
+#include "Videoconsola.h"
 #include <pqxx/pqxx>
 #include <iostream>
 
